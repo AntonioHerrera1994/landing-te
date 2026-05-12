@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dolcino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+
+  <!-- LOGO -->
+  <div class="logo-wrap">
+    <a href="#">
+      <span class="logo-text">Dolcino</span>
+    </a>
+  </div>
+
+  <!-- NAV + SOCIAL -->
+  <nav>
+    <ul>
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">Pages</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Elements</a></li>
+    </ul>
+
+    <div class="nav-divider"></div>
+
+    <div class="social-group">
+
+      <!-- Instagram -->
+      <a href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4.5"/>
+          <circle cx="17.5" cy="6.5" r="0" style="fill:currentColor;stroke:currentColor;stroke-width:1.5"/>
+          <path d="M17.5 6.5" style="stroke:currentColor;stroke-width:2;stroke-linecap:round"/>
+        </svg>
+      </a>
+
+      <!-- Facebook -->
+      <a href="#" aria-label="Facebook">
+        <svg viewBox="0 0 24 24">
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+        </svg>
+      </a>
+
+      <!-- Pinterest -->
+      <a href="#" aria-label="Pinterest">
+        <svg viewBox="0 0 24 24" class="fill-icon">
+          <path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.428 1.808-2.428.853 0 1.267.641 1.267 1.408 0 .858-.546 2.14-.828 3.33-.236.995.499 1.806 1.476 1.806 1.772 0 3.135-1.867 3.135-4.563 0-2.386-1.715-4.054-4.163-4.054-2.836 0-4.5 2.127-4.5 4.326 0 .856.33 1.774.74 2.276a.3.3 0 0 1 .069.286c-.075.313-.243.995-.276 1.134-.044.183-.146.222-.337.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.967-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.938.29 1.931.446 2.962.446 5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+        </svg>
+      </a>
+
+      <!-- TikTok -->
+      <a href="#" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" class="fill-icon">
+          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.17 8.17 0 0 0 4.78 1.52V6.78a4.85 4.85 0 0 1-1.01-.09z"/>
+        </svg>
+      </a>
+
+      <!-- YouTube -->
+      <a href="#" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" class="fill-icon">
+          <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.96-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/>
+        </svg>
+      </a>
+
+    </div>
+  </nav>
+
+  <div class="header-line"></div>
+
+</header>
+
+<!-- HERO SLIDER -->
+<div class="slider" id="slider">
+
+  <div class="slide active">
+    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80" alt="Mesa de postres"/>
+    <div class="slide-caption">
+      <h2>Dulces Momentos</h2>
+      <p>Pasteles & postres artesanales</p>
+    </div>
+  </div>
+
+  <div class="slide">
+    <img src="https://images.unsplash.com/photo-1464349153735-7db50ed83c84?w=1600&q=80" alt="Pastelería elegante"/>
+    <div class="slide-caption">
+      <h2>Arte en cada bocado</h2>
+      <p>Macarons · Tartas · Cupcakes</p>
+    </div>
+  </div>
+
+  <div class="slide">
+    <img src="https://images.unsplash.com/photo-1519915028121-7d3463d20b13?w=1600&q=80" alt="Torta de boda"/>
+    <div class="slide-caption">
+      <h2>Para tu gran día</h2>
+      <p>Wedding cakes a medida</p>
+    </div>
+  </div>
+
+  <div class="slide">
+    <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=1600&q=80" alt="Cupcakes decorados"/>
+    <div class="slide-caption">
+      <h2>Creaciones únicas</h2>
+      <p>Diseño & sabor en perfecta armonía</p>
+    </div>
+  </div>
+
+  <button class="slider-btn prev" id="prevBtn" aria-label="Anterior">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="slider-btn next" id="nextBtn" aria-label="Siguiente">
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+
+  <div class="slider-dots" id="dots"></div>
+</div>
+
+<!-- ─── GRID SECTION ─── -->
+<section class="home-grid">
+
+  <!-- FILA 1 -->
+  <div class="grid-cell grid-img">
+    <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=800&q=80" alt="Pastel decorado"/>
+  </div>
+
+  <div class="grid-cell grid-text">
+    <div class="grid-text-inner">
+      <h3>Our Story</h3>
+      <div class="gold-divider"><span></span></div>
+      <p>Cada creación nace de la pasión por el detalle y el amor por los sabores únicos. Nuestra repostería artesanal transforma ingredientes selectos en momentos inolvidables.</p>
+      <a href="#" class="grid-link">Discover</a>
+    </div>
+  </div>
+
+  <div class="grid-cell grid-img">
+    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=80" alt="Torta de boda blanca"/>
+  </div>
+
+  <!-- FILA 2 -->
+  <div class="grid-cell grid-text">
+    <div class="grid-text-inner">
+      <h3>Contact</h3>
+      <div class="gold-divider"><span></span></div>
+      <p>
+        Av. Pastelería 267, Local 3<br>
+        E-mail: hola@dolcino.com<br>
+        Phone: +52 (664) 100 0000
+      </p>
+      <a href="#" class="grid-link">View Map</a>
+    </div>
+  </div>
+
+  <div class="grid-cell grid-img">
+    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=800&q=80" alt="Pastel de canela"/>
+  </div>
+
+  <div class="grid-cell grid-text grid-text--gold">
+    <div class="grid-text-inner">
+      <p class="script-heading">Find out more<br>about special<br>offers</p>
+      <a href="#" class="grid-link grid-link--light">Read More</a>
+    </div>
+  </div>
+
+</section>
+
+<section class="cmd-section">
+ 
+  <!-- Encabezado -->
+  <div class="cmd-header">
+    <p class="cmd-script">please, do this</p>
+    <h2 class="cmd-title">CAKE MY DAY</h2>
+    <div class="gold-divider"><span></span></div>
+  </div>
+ 
+  <!-- Dos columnas de texto -->
+  <div class="cmd-body">
+    <div class="cmd-col cmd-col--dropcap">
+      <p>hocolate adipiscing elit duis tristique sollicitudin nibh sit amet commodo. Fermentum iaculis eu non diam phasellus vestibulum. Nibh nisl condimentum id venenatis. Tempor id eu nisl nunc mi. Diam vel quam elementum pulvinar etiam non quam lacus. Convallis posuere morbi leo urna molestie at elementum eu odio.</p>
+    </div>
+    <div class="cmd-col">
+      <p>Tempor id eu nisl nunc mi. Diam vel quam elementum pulvinar etiam non quam lacus. Convallis posuere morbi leo urna molestie at elementum eu. Odio facilisis mauris sit amet. Massa sapien faucibus et molestie ac. Ac odio tempor orci dapibus ultrices in iaculis. Aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus quam.</p>
+    </div>
+  </div>
+ 
+</section>
+ 
+<!-- ─── SECCIÓN: OUR PEOPLE ─── -->
+<section class="people-section">
+ 
+  <div class="people-grid">
+ 
+    <!-- Celda texto -->
+    <div class="people-cell people-text">
+      <h3>OUR PEOPLE</h3>
+      <div class="gold-divider"><span></span></div>
+      <p>Mauris vitae ultricies leo integer. Lorem ipsum dolor sit amet.</p>
+      <a href="#" class="grid-link">View More</a>
+    </div>
+ 
+    <!-- Fotos -->
+    <div class="people-cell people-photo">
+      <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80" alt="Chef 1"/>
+    </div>
+ 
+    <div class="people-cell people-photo">
+      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&q=80" alt="Chef 2"/>
+    </div>
+ 
+    <div class="people-cell people-photo">
+      <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?w=600&q=80" alt="Chef 3"/>
+    </div>
+ 
+  </div>
+ 
+</section>
+
+<section class="pg-section">
+  <div class="pg-grid">
+ 
+    <!-- ── FILA 1 ── -->
+ 
+    <!-- Celda texto: WE ARE OPEN -->
+    <div class="pg-cell pg-text pg-open">
+      <p class="pg-hours">09:00 – 21:00</p>
+      <h3>WE ARE<br>OPEN</h3>
+    </div>
+ 
+    <!-- Imagen pequeña -->
+    <div class="pg-cell pg-img">
+      <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600&q=80" alt="Pastel de frutos rojos"/>
+    </div>
+ 
+    <!-- Imagen grande (span 2 cols) -->
+    <div class="pg-cell pg-img pg-wide">
+      <span class="pg-badge">Sale</span>
+      <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=900&q=80" alt="Pastel de matcha"/>
+    </div>
+ 
+    <!-- Imagen pequeña -->
+    <div class="pg-cell pg-img">
+      <img src="https://images.unsplash.com/photo-1551404973-761c83cd8339?w=600&q=80" alt="Milhojas caramelo"/>
+    </div>
+ 
+    <!-- ── FILA 2 ── -->
+ 
+    <!-- Imagen grande vertical (span 2 filas) -->
+    <div class="pg-cell pg-img pg-tall">
+      <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=80" alt="Naked cake naranja"/>
+    </div>
+ 
+    <!-- Imagen mediana -->
+    <div class="pg-cell pg-img">
+      <img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=600&q=80" alt="Pastel espejo negro"/>
+    </div>
+ 
+    <!-- Imagen mediana -->
+    <div class="pg-cell pg-img">
+      <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=600&q=80" alt="Pastel flores amarillas"/>
+    </div>
+ 
+
+    <!-- ── FILA 3 (debajo del tall) ── -->
+ 
+    <!-- Imagen mediana -->
+    <div class="pg-cell pg-img">
+      <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=600&q=80" alt="Pastel rosa fresas"/>
+    </div>
+ 
+    <!-- Imagen mediana -->
+    <div class="pg-cell pg-img">
+      <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80" alt="Pastel miel frutos"/>
+    </div>
+ 
+  </div>
+</section>
+ 
+<!-- ═══════════════════════════════════════
+     SOCIAL DIAMONDS — componente standalone
+═══════════════════════════════════════ -->
+ 
+<section class="socials-bar">
+  <div class="socials-inner">
+ 
+    <a href="#" class="diamond-link" aria-label="Facebook">
+      <span class="diamond">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </span>
+    </a>
+ 
+    <a href="#" class="diamond-link" aria-label="Twitter / X">
+      <span class="diamond">
+        <svg viewBox="0 0 24 24"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+      </span>
+    </a>
+ 
+    <a href="#" class="diamond-link" aria-label="LinkedIn">
+      <span class="diamond">
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </span>
+    </a>
+ 
+    <a href="#" class="diamond-link" aria-label="Instagram">
+      <span class="diamond">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" style="fill:currentColor;stroke:none"/></svg>
+      </span>
+    </a>
+ 
+    <a href="#" class="diamond-link" aria-label="Pinterest">
+      <span class="diamond">
+        <svg viewBox="0 0 24 24" style="fill:currentColor;stroke:none"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.428 1.808-2.428.853 0 1.267.641 1.267 1.408 0 .858-.546 2.14-.828 3.33-.236.995.499 1.806 1.476 1.806 1.772 0 3.135-1.867 3.135-4.563 0-2.386-1.715-4.054-4.163-4.054-2.836 0-4.5 2.127-4.5 4.326 0 .856.33 1.774.74 2.276a.3.3 0 0 1 .069.286c-.075.313-.243.995-.276 1.134-.044.183-.146.222-.337.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.967-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.938.29 1.931.446 2.962.446 5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+      </span>
+    </a>
+ 
+  </div>
+ 
+  <!-- Flecha scroll-to-top -->
+  <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+</section>
+
+<script>
+  /* Nav active link */
+  document.querySelectorAll('nav ul li a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.querySelectorAll('nav ul li a').forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
+
+  /* Slider */
+  const slides   = document.querySelectorAll('.slide');
+  const dotsWrap = document.getElementById('dots');
+  let current = 0;
+  let timer;
+
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', `Slide ${i + 1}`);
+    d.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(d);
+  });
+
+  function getDots() { return document.querySelectorAll('.dot'); }
+
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    getDots()[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    getDots()[current].classList.add('active');
+    resetTimer();
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => goTo(current + 1), 5000);
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
+  document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
+
+  let touchX = 0;
+  const sl = document.getElementById('slider');
+  sl.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+  sl.addEventListener('touchend',   e => {
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 40) goTo(dx < 0 ? current + 1 : current - 1);
+  });
+
+  sl.addEventListener('mouseenter', () => clearInterval(timer));
+  sl.addEventListener('mouseleave', resetTimer);
+
+  resetTimer();
+
+   document.getElementById('backToTop').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>
