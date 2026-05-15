@@ -116,7 +116,7 @@ nav ul li a:hover::after, nav ul li a.active::after { transform: scaleX(1); }
 .exp-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(201,116,138,.15); }
 .exp-img-wrap { position: relative; height: 350px; overflow: hidden; }
 .exp-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; }
-.exp-card:hover .exp-img-wrap img { transform: scale(1.05); }
+
 .exp-price { position: absolute; top: 14px; right: 14px; background: var(--rose); color: #fff; font-family: 'Cinzel', serif; font-size: 0.82rem; font-weight: 600; letter-spacing: .06em; padding: 5px 14px; border-radius: 2px; }
 .exp-body { padding: 24px 24px 20px; }
 .exp-tag { font-family: 'Cormorant Garamond', serif; font-size: 0.7rem; letter-spacing: .2em; color: var(--rose-light); text-transform: uppercase; margin-bottom: 4px; }
@@ -129,6 +129,47 @@ nav ul li a:hover::after, nav ul li a.active::after { transform: scaleX(1); }
 .exp-cols ul li { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--text-light); padding: 2px 0 2px 12px; position: relative; line-height: 1.35; }
 .exp-cols ul li::before { content: '·'; position: absolute; left: 0; color: var(--rose-light); }
 .exp-price-line { font-family: 'Cormorant Garamond', serif; font-size: 1rem; letter-spacing: .08em; color: var(--rose); font-style: italic; text-align: center; border-top: 1px solid var(--rose-pale); padding-top: 10px; margin-top: 4px; }
+.slide-track {
+  display: flex;
+  height: 100%;
+  transition: transform .45s cubic-bezier(.4, 0, .2, 1);
+}
+.slide-track img {
+  min-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.slide-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,.92);
+  border: none;
+  border-radius: 2px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background .2s, opacity .2s;
+  padding: 0;
+}
+.slide-arrow:hover { background: #fff; }
+.slide-arrow.prev { left: 10px; }
+.slide-arrow.next { right: 10px; }
+.slide-arrow svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--rose);
+  stroke-width: 2.2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.slide-arrow.hidden { opacity: 0; pointer-events: none; }
 
 /* SPA */
 .spa-section { background: var(--white); padding-bottom: 72px; position: relative; }

@@ -142,10 +142,22 @@ Una actividad delicada y divertida donde cada princesa diseñará su propio alha
   <div class="exp-grid">
 
     <div class="exp-card">
-      <div class="exp-img-wrap">
-        <img src="/cake.webp" alt="Princess Cake Tea Party"/>
-        <div class="exp-price">$60 USD</div>
-      </div>
+    <div class="exp-img-wrap">
+  <div class="slide-track">
+    <img src="/cake.webp" alt="Princess Cake Tea Party"/>
+    <img src="/cake2.webp" alt="Princess Cake Tea Party 2"/>
+      <img src="/cake3.webp" alt="Princess Cake Tea Party 2"/>
+        <img src="/cake4.webp" alt="Princess Cake Tea Party 2"/>
+    <!-- agrega más imágenes aquí -->
+  </div>
+  <button class="slide-arrow prev" aria-label="Anterior">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="slide-arrow next" aria-label="Siguiente">
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+  <div class="exp-price">$60 USD</div>
+</div>
       <div class="exp-body">
         <p class="exp-tag">— EXPERIENCIA —</p>
         <h3>Pricess Cake<br><em>Tea Party</em></h3>
@@ -159,10 +171,22 @@ Una actividad delicada y divertida donde cada princesa diseñará su propio alha
     </div>
 
     <div class="exp-card">
-      <div class="exp-img-wrap">
-        <img src="/artat.webp" alt="Art Attack"/>
-        <div class="exp-price">$55 USD</div>
-      </div>
+    <div class="exp-img-wrap">
+  <div class="slide-track">
+    <img src="/artat.webp" alt="Princess Cake Tea Party"/>
+    <img src="/art2.webp" alt="Princess Cake Tea Party 2"/>
+    <img src="/art3.webp" alt="Princess Cake Tea Party 3"/>
+    <img src="/art4.webp" alt="Princess Cake Tea Party 4"/>
+    <!-- agrega más imágenes aquí -->
+  </div>
+  <button class="slide-arrow prev" aria-label="Anterior">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="slide-arrow next" aria-label="Siguiente">
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+  <div class="exp-price">$55 USD</div>
+</div>
       <div class="exp-body">
         <p class="exp-tag">— EXPERIENCIA —</p>
         <h3>Art<br><em>Attack</em></h3>
@@ -177,9 +201,20 @@ Una actividad delicada y divertida donde cada princesa diseñará su propio alha
 
     <div class="exp-card">
       <div class="exp-img-wrap">
-        <img src="/alhajeo.jpeg" alt="Decora tu Alhajero"/>
-        <div class="exp-price">$55 USD</div>
-      </div>
+  <div class="slide-track">
+    <img src="/alhajeo.jpeg" alt="Alajero"/>
+    <img src="/alaj2.webp" alt="Alajero 2"/>
+    <img src="/alaj3.webp" alt="Alajero 3"/>
+    <!-- agrega más imágenes aquí -->
+  </div>
+  <button class="slide-arrow prev" aria-label="Anterior">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="slide-arrow next" aria-label="Siguiente">
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+  <div class="exp-price">$55 USD</div>
+</div>
       <div class="exp-body">
         <p class="exp-tag">— EXPERIENCIA —</p>
         <h3>Decora tu<br><em>Alhajero</em></h3>
@@ -326,6 +361,25 @@ Una actividad delicada y divertida donde cada princesa diseñará su propio alha
 </footer>
 
 <script>
+document.querySelectorAll('.exp-img-wrap').forEach(wrap => {
+  const track = wrap.querySelector('.slide-track');
+  const slides = track.querySelectorAll('img');
+  const prev = wrap.querySelector('.prev');
+  const next = wrap.querySelector('.next');
+  let idx = 0;
+
+  function go(n) {
+    idx = Math.max(0, Math.min(slides.length - 1, n));
+    track.style.transform = `translateX(-${idx * 100}%)`;
+    prev.classList.toggle('hidden', idx === 0);
+    next.classList.toggle('hidden', idx === slides.length - 1);
+  }
+
+  go(0); // oculta flecha izquierda al inicio
+  prev.addEventListener('click', () => go(idx - 1));
+  next.addEventListener('click', () => go(idx + 1));
+});
+
   document.querySelectorAll('nav ul li a').forEach(link => {
     link.addEventListener('click', () => {
       document.querySelectorAll('nav ul li a').forEach(l => l.classList.remove('active'));
