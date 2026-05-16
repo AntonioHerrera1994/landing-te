@@ -114,7 +114,7 @@ nav ul li a:hover::after, nav ul li a.active::after { transform: scaleX(1); }
 .exp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 1400px; margin: 0 auto; padding: 0 6vw; }
 .exp-card { background: var(--white); border: 1px solid rgba(201,116,138,.15); border-radius: 4px; overflow: hidden; box-shadow: 0 4px 24px rgba(201,116,138,.08); transition: transform .3s, box-shadow .3s; }
 .exp-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(201,116,138,.15); }
-.exp-img-wrap { position: relative; height: 350px; overflow: hidden; }
+.exp-img-wrap { position: relative; height: 480px; overflow: hidden; }
 .exp-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; }
 
 .exp-price { position: absolute; top: 14px; right: 14px; background: var(--rose); color: #fff; font-family: 'Cinzel', serif; font-size: 0.82rem; font-weight: 600; letter-spacing: .06em; padding: 5px 14px; border-radius: 2px; }
