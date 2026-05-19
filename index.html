@@ -277,6 +277,43 @@ Una actividad delicada y divertida donde cada princesa diseñará su propio alha
       <div class="spa-gift"><strong>Regalo:</strong> Lip gloss, cepillo, lima, cortauñas y bolsita sorpresa</div>
     </div>
   </div>
+
+<div class="spa-gallery">
+  <div class="spa-gallery-grid">
+    <div class="spa-gallery-item" data-idx="0">
+      <img src="/spa1.webp" alt="Spa niñas manicure" loading="lazy">
+      <div class="spa-gallery-overlay"><span></span></div>
+    </div>
+    <div class="spa-gallery-item" data-idx="1">
+      <img src="/spa2.webp" alt="Spa pedicure princesa" loading="lazy">
+      <div class="spa-gallery-overlay"><span></span></div>
+    </div>
+    <div class="spa-gallery-item" data-idx="2">
+      <img src="/spa3.webp" alt="Mascarilla facial spa" loading="lazy">
+      <div class="spa-gallery-overlay"><span></span></div>
+    </div>
+    <div class="spa-gallery-item" data-idx="3">
+      <img src="/spa4.webp" alt="Maquillaje fantasía niñas" loading="lazy">
+      <div class="spa-gallery-overlay"><span></span></div>
+    </div>
+    <div class="spa-gallery-item" data-idx="4">
+      <img src="/spa5.webp" alt="Peinado glitter princesa" loading="lazy">
+      <div class="spa-gallery-overlay"><span></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="spa-modal" id="spaModal">
+  <button class="spa-modal-close" id="spaModalClose">&times;</button>
+  <div class="spa-modal-inner">
+    <button class="spa-modal-nav spa-modal-prev" id="spaPrev">&#8249;</button>
+    <div class="spa-modal-img-wrap">
+      <img id="spaModalImg" src="" alt="">
+    </div>
+    <button class="spa-modal-nav spa-modal-next" id="spaNext">&#8250;</button>
+  </div>
+  <div class="spa-modal-dots" id="spaModalDots"></div>
+</div>
 </section>
 
 <section class="res-section" id="reservaciones">
@@ -361,11 +398,16 @@ Una actividad delicada y divertida donde cada princesa diseñará su propio alha
 </footer>
 
 <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* ── SLIDERS── */
 document.querySelectorAll('.exp-img-wrap').forEach(wrap => {
   const track = wrap.querySelector('.slide-track');
+  if (!track) return;   // ← ESTA LÍNEA — salta si no tiene slider
   const slides = track.querySelectorAll('img');
   const prev = wrap.querySelector('.prev');
   const next = wrap.querySelector('.next');
+  if (!prev || !next) return;   // ← por si tampoco tiene flechas
   let idx = 0;
 
   function go(n) {
@@ -375,47 +417,152 @@ document.querySelectorAll('.exp-img-wrap').forEach(wrap => {
     next.classList.toggle('hidden', idx === slides.length - 1);
   }
 
-  go(0); // oculta flecha izquierda al inicio
+  go(0);
   prev.addEventListener('click', () => go(idx - 1));
   next.addEventListener('click', () => go(idx + 1));
 });
 
+  /* ── NAV LINKS ── */
   document.querySelectorAll('nav ul li a').forEach(link => {
     link.addEventListener('click', () => {
       document.querySelectorAll('nav ul li a').forEach(l => l.classList.remove('active'));
       link.classList.add('active');
     });
   });
-  const slides = document.querySelectorAll('.slide');
-  const dotsWrap = document.getElementById('dots');
-  let current = 0, timer;
-  slides.forEach((_, i) => {
+
+  /* ── HERO SLIDER ── */
+  const heroSlides = document.querySelectorAll('.slide');
+  const dotsWrap   = document.getElementById('dots');
+  let heroCurrent  = 0;
+  let heroTimer;
+
+  heroSlides.forEach((_, i) => {
     const d = document.createElement('button');
     d.className = 'dot' + (i === 0 ? ' active' : '');
-    d.setAttribute('aria-label', 'Slide ' + (i+1));
-    d.addEventListener('click', () => goTo(i));
+    d.setAttribute('aria-label', 'Slide ' + (i + 1));
+    d.addEventListener('click', () => heroGoTo(i));
     dotsWrap.appendChild(d);
   });
-  function getDots() { return document.querySelectorAll('.dot'); }
-  function goTo(n) {
-    slides[current].classList.remove('active');
-    getDots()[current].classList.remove('active');
-    current = (n + slides.length) % slides.length;
-    slides[current].classList.add('active');
-    getDots()[current].classList.add('active');
-    resetTimer();
+
+  function getHeroDots() { return document.querySelectorAll('.dot'); }
+
+  function heroGoTo(n) {
+    heroSlides[heroCurrent].classList.remove('active');
+    getHeroDots()[heroCurrent].classList.remove('active');
+    heroCurrent = (n + heroSlides.length) % heroSlides.length;
+    heroSlides[heroCurrent].classList.add('active');
+    getHeroDots()[heroCurrent].classList.add('active');
+    heroResetTimer();
   }
-  function resetTimer() { clearInterval(timer); timer = setInterval(() => goTo(current + 1), 5500); }
-  document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
-  document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
-  let touchX = 0;
+
+  function heroResetTimer() {
+    clearInterval(heroTimer);
+    heroTimer = setInterval(() => heroGoTo(heroCurrent + 1), 5500);
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', () => heroGoTo(heroCurrent - 1));
+  document.getElementById('nextBtn').addEventListener('click', () => heroGoTo(heroCurrent + 1));
+
   const sl = document.getElementById('slider');
-  sl.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, {passive:true});
-  sl.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - touchX; if (Math.abs(dx) > 40) goTo(dx < 0 ? current + 1 : current - 1); });
-  sl.addEventListener('mouseenter', () => clearInterval(timer));
-  sl.addEventListener('mouseleave', resetTimer);
-  resetTimer();
-  document.getElementById('backToTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  let touchX = 0;
+  sl.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+  sl.addEventListener('touchend',   e => {
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 40) heroGoTo(dx < 0 ? heroCurrent + 1 : heroCurrent - 1);
+  });
+  sl.addEventListener('mouseenter', () => clearInterval(heroTimer));
+  sl.addEventListener('mouseleave', heroResetTimer);
+  heroResetTimer();
+
+  /* ── BACK TO TOP ── */
+  document.getElementById('backToTop').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* ── SPA GALLERY MODAL ── */
+  const spaImages = [
+    "/spa1.webp",
+    "/spa2.webp",
+    "/spa3.webp",
+    "/spa4.webp",
+    "/spa5.webp"
+  ];
+
+  let spaCurrent = 0;
+
+  const spaModal    = document.getElementById("spaModal");
+  const spaModalImg = document.getElementById("spaModalImg");
+  const spaDotsEl   = document.getElementById("spaModalDots");
+  const spaCloseBtn = document.getElementById("spaModalClose");
+  const spaPrevBtn  = document.getElementById("spaPrev");
+  const spaNextBtn  = document.getElementById("spaNext");
+
+  document.querySelectorAll(".spa-gallery-item").forEach(function (item) {
+    item.addEventListener("click", function () {
+      spaCurrent = parseInt(item.getAttribute("data-idx"), 10);
+      spaOpen();
+    });
+  });
+
+  spaCloseBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    spaClose();
+  });
+
+  spaModal.addEventListener("click", function (e) {
+    if (e.target === spaModal) spaClose();
+  });
+
+  spaPrevBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    spaCurrent = (spaCurrent - 1 + spaImages.length) % spaImages.length;
+    spaRender();
+  });
+
+  spaNextBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    spaCurrent = (spaCurrent + 1) % spaImages.length;
+    spaRender();
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (!spaModal.classList.contains("is-open")) return;
+    if (e.key === "ArrowRight") { spaCurrent = (spaCurrent + 1) % spaImages.length; spaRender(); }
+    if (e.key === "ArrowLeft")  { spaCurrent = (spaCurrent - 1 + spaImages.length) % spaImages.length; spaRender(); }
+    if (e.key === "Escape")     { spaClose(); }
+  });
+
+  function spaOpen() {
+    spaModal.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+    spaRender();
+  }
+
+  function spaClose() {
+    spaModal.classList.remove("is-open");
+    document.body.style.overflow = "";
+  }
+
+  function spaRender() {
+    spaModalImg.style.animation = "none";
+    void spaModalImg.offsetWidth;
+    spaModalImg.style.animation = "";
+    spaModalImg.src = spaImages[spaCurrent];
+
+    spaDotsEl.innerHTML = spaImages.map(function (_, i) {
+      return '<div class="spa-modal-dot' + (i === spaCurrent ? " active" : "") + '" data-dot="' + i + '"></div>';
+    }).join("");
+
+    spaDotsEl.querySelectorAll(".spa-modal-dot").forEach(function (dot) {
+      dot.addEventListener("click", function (e) {
+        e.stopPropagation();
+        spaCurrent = parseInt(dot.getAttribute("data-dot"), 10);
+        spaRender();
+      });
+    });
+  }
+
+}); // fin DOMContentLoaded
 </script>
 </body>
 </html>

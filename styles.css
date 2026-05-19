@@ -184,6 +184,188 @@ nav ul li a:hover::after, nav ul li a.active::after { transform: scaleX(1); }
 .spa-card p { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; line-height: 1.75; color: var(--text-light); margin-bottom: 14px; }
 .spa-gift { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--rose-dark); background: rgba(201,116,138,.08); border-left: 2px solid var(--rose-light); padding: 9px 12px; text-align: left; border-radius: 0 2px 2px 0; }
 .spa-gift strong { color: var(--rose); font-style: normal; }
+/* SPA GALLERY */
+.spa-gallery {
+  max-width: 100%;
+  margin: 48px auto 0;
+  padding: 0 6vw;
+
+}
+
+.spa-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.spa-gallery-item {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid rgba(201, 116, 138, 0.18);
+}
+
+.spa-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.spa-gallery-item:hover img {
+  transform: scale(1.07);
+}
+
+.spa-gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(201,116,138,0.45) 0%, rgba(232,165,181,0.3) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: #fff;
+  font-size: 1.6rem;
+}
+
+.spa-gallery-item:hover .spa-gallery-overlay {
+  opacity: 1;
+}
+
+/* MODAL */
+.spa-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(20, 10, 14, 0.88);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.spa-modal.is-open {
+  display: flex;
+  animation: spaFadeIn 0.25s ease;
+}
+
+@keyframes spaFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.spa-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.75);
+  font-size: 2.2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s;
+  z-index: 10;
+  padding: 4px 8px;
+}
+
+.spa-modal-close:hover {
+  color: #fff;
+}
+
+.spa-modal-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 92vw;
+  max-height: 82vh;
+}
+
+.spa-modal-img-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 82vw;
+  max-height: 80vh;
+}
+
+.spa-modal-img-wrap img {
+  max-width: 100%;
+  max-height: 78vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+  display: block;
+  animation: spaImgIn 0.3s ease;
+}
+
+@keyframes spaImgIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.spa-modal-nav {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.85);
+  font-size: 2rem;
+  line-height: 1;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spa-modal-nav:hover {
+  background: rgba(201,116,138,0.5);
+  color: #fff;
+}
+
+.spa-modal-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.spa-modal-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.spa-modal-dot.active {
+  background: var(--rose, #C9748A);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .spa-gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+  }
+  .spa-gallery-grid .spa-gallery-item:nth-child(4),
+  .spa-gallery-grid .spa-gallery-item:nth-child(5) {
+    display: none;
+  }
+  .spa-modal-nav { display: none; }
+}
 
 /* RESERVACIONES */
 .res-section { background: var(--cream-dark); padding-bottom: 72px; }
